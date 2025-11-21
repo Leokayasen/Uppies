@@ -1,0 +1,39 @@
+name: Discord Notifications
+
+on:
+  push: {}
+  issues:
+    types: [opened, edited, closed, reopened, labeled]
+  pull_request:
+    types: [opened, closed, reopened, synchronize]
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (ensure global fetch available)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Show Node version (debug)
+        run: node -v
+
+      - name: Run Discord notifier script
+        env:
+          WEBHOOK_DISCORD: ${{ secrets.WEBHOOK_DISCORD }}
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_ACTOR: ${{ github.actor }}
+        run: |
+          if [ -z "$WEBHOOK_DISCORD" ]; then
+            echo "WEBHOOK_DISCORD secret not set"; exit 1
+          fi
+          node .github/scripts/discord-notify.js
