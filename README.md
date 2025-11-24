@@ -4,7 +4,7 @@ A simple Paper 1.21.8+ Plugin for sitting on blocks and players
 
 ## Mod Details
 - **Name:** Uppies
-- **Version:** 1.0.0
+- **Latest Version:** _See RELEASE page_
 - **Author:** k4i (BitWave Studios)
 
 ## Features

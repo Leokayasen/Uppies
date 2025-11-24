@@ -17,13 +17,13 @@ public class RideCommand implements CommandExecutor {
         if (!(sender instanceof Player player)) return true;
 
         if (args.length != 1) {
-            player.sendMessage("&cUsage: /ride <player>");
+            player.sendMessage("Usage: /ride <player>");
             return true;
         }
 
         Player target = Bukkit.getPlayer(args[0]);
         if (target == null) {
-            player.sendMessage("&cPlayer not found.");
+            player.sendMessage("Player not found.");
             return true;
         }
 

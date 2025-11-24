@@ -24,14 +24,14 @@ public class SitCommand implements CommandExecutor {
         if (args.length == 1) {
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
-                player.sendMessage("&cPlayer not found.");
+                player.sendMessage("Player not found.");
                 return true;
             }
             sitManager.sitOnPlayer(player, target);
             return true;
         }
 
-        player.sendMessage("&cUsage: /sit [player]");
+        player.sendMessage("Usage: /sit <player>");
         return true;
     }
 }

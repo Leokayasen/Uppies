@@ -1,9 +1,11 @@
 name: Uppies
 main: com.bitwave.Uppies.Main
-version: 1.0.0
+version: 1.0.3
 api-version: 1.21
 commands:
   sit:
     description: Take a seat
+    usage: /sit
   ride:
     description: Ride an entity or player
+    usage: /ride <player>

@@ -14,12 +14,12 @@ public class SitManager {
 
     public void sitOnGround(Player player) {
         if (isSitting(player)) {
-            player.sendMessage("&cYou are already sitting.");
+            player.sendMessage("You are already sitting.");
             return;
         }
 
         Location location = player.getLocation().clone();
-        location.setY(location.getY() - 1.2);
+        location.setY(location.getY() - 0.1);
 
         ArmorStand armorStand = player.getWorld().spawn(location, ArmorStand.class, stand -> {
             stand.setVisible(false);
@@ -31,23 +31,23 @@ public class SitManager {
         armorStand.addPassenger(player);
         sitting.put(player, armorStand);
 
-        player.sendMessage("&aYou are now sitting.");
+        player.sendMessage("You are now sitting.");
     }
 
     public void sitOnPlayer(Player sitter, Player target) {
         if (sitter.equals(target)) {
-            sitter.sendMessage("&cYou cannot sit on yourself.");
+            sitter.sendMessage("You cannot sit on yourself.");
             return;
         }
 
         if (!target.getPassengers().isEmpty()) {
-            sitter.sendMessage("&cThat player already has someone riding them.");
+            sitter.sendMessage("That player already has someone riding them.");
             return;
         }
 
         target.addPassenger(sitter);
-        sitter.sendMessage("&aYou are now sitting on " + target.getName() + ".");
-        target.sendMessage("&e" + sitter.getName() + " is now riding you.");
+        sitter.sendMessage("You are now sitting on " + target.getName() + ".");
+        target.sendMessage(sitter.getName() + " is now riding you.");
     }
 
     public boolean isSitting(Player player) {
