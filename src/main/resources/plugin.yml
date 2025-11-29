@@ -1,7 +1,7 @@
 name: Uppies
 main: com.bitwave.Uppies.Main
 description: A plugin that allows players to sit, ride, crawl, and lay down.
-version: 1.1
+version: 1.2
 api-version: 1.21
 commands:
   sit:

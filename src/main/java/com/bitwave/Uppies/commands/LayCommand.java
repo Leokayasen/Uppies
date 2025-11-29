@@ -1,14 +1,14 @@
 package com.bitwave.Uppies.commands;
 
-import com.bitwave.Uppies.util.PoseManager;
+import com.bitwave.Uppies.util.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
 public class LayCommand implements CommandExecutor {
-    private final PoseManager poseManager;
+    private final LayManager layManager;
 
-    public LayCommand(PoseManager poseManager) {
-        this.poseManager = poseManager;
+    public LayCommand(LayManager layManager) {
+        this.layManager = layManager;
     }
 
     @Override
@@ -18,7 +18,7 @@ public class LayCommand implements CommandExecutor {
             return true;
         }
 
-        poseManager.toggleLay(player);
+        layManager.toggle(player);
         return true;
     }
 }

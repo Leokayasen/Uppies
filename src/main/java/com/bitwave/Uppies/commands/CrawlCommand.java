@@ -1,14 +1,14 @@
 package com.bitwave.Uppies.commands;
 
-import com.bitwave.Uppies.util.PoseManager;
+import com.bitwave.Uppies.util.*;
 import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 
 public class CrawlCommand implements CommandExecutor {
-    private final PoseManager poseManager;
+    private final CrawlManager crawlManager;
 
-    public CrawlCommand(PoseManager poseManager) {
-        this.poseManager = poseManager;
+    public CrawlCommand(CrawlManager crawlManager) {
+        this.crawlManager = crawlManager;
     }
 
     @Override
@@ -18,7 +18,7 @@ public class CrawlCommand implements CommandExecutor {
             return true;
         }
 
-        poseManager.toggleCrawl(player);
+        crawlManager.toggle(player);
         return true;
     }
 }
