@@ -11,6 +11,9 @@ A simple Paper 1.21.8+ Plugin for sitting on blocks and players
 - `/sit` command to sit on the block you are standing on
 - `/sit <player>` command to sit on another player
 - `/ride <player>` alternative command to sit on another player
+- `/lay` command to lie down
+- `/crawl` command to crawl
+- `/uppies reload` command to reload the plugin configuration (requires OP)
 - Permission-based access control
 - Configurable messages for various actions
 - Configurable whitelist for blocks that players can sit on
