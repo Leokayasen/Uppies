@@ -3,7 +3,6 @@ package com.bitwave.Uppies.listeners;
 import com.bitwave.Uppies.util.PoseManager;
 import org.bukkit.event.*;
 import org.bukkit.event.player.*;
-import org.bukkit.entity.Player;
 
 public class PoseListener implements Listener {
     private final PoseManager poseManager;
