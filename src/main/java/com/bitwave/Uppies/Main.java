@@ -22,10 +22,18 @@ public class Main extends JavaPlugin {
 
         getCommand("sit").setExecutor(new SitCommand(sitManager));
         getCommand("ride").setExecutor(new RideCommand(sitManager));
+
         getCommand("crawl").setExecutor(new CrawlCommand(crawlManager));
         getCommand("lay").setExecutor(new LayCommand(layManager));
 
         getServer().getPluginManager().registerEvents(new DismountListener(sitManager), this);
+        getServer().getPluginManager().registerEvents(
+                new PoseListener(crawlManager, layManager), this
+        );
+
+        getServer().getScheduler().runTaskTimer(this, () -> {
+            crawlManager.tick();
+        }, 1L, 1L);
 
         getLogger().info("Uppies is enabled.");
     }
@@ -33,6 +41,8 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         sitManager.cleanup();
+        crawlManager.cleanup();
+        layManager.cleanup();
         getLogger().info("Uppies is disabled.");
     }
 }
